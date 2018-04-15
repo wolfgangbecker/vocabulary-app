@@ -29,26 +29,22 @@ export default {
       newWord: {
         native: '',
         foreign: ''
-      },
-      nextId: 1,
-      words: [{
-        native: 'Hello',
-        foreign: 'Hola',
-        id: 0
-      }]
+      }
+    }
+  },
+  computed: {
+    words () {
+      return this.$store.state.words
     }
   },
   methods: {
     addWord () {
-      this.words.push({
-        ...this.newWord,
-        id: this.nextId++
-      })
+      this.$store.commit('addWord', this.newWord)
       this.newWord.native = ''
       this.newWord.foreign = ''
     },
     removeWord (index) {
-      this.words.splice(index, 1)
+      this.$store.commit('removeWord', index)
     }
   }
 }

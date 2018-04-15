@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Vocabulary App</h1>
+    <h1>Word list</h1>
     <form class="form" v-on:submit="addWord()">
       <label for="native">Word</label>
       <input type="text" id="native" v-model="newWord.native">
@@ -8,7 +8,9 @@
       <input type="text" id="foreign" v-model="newWord.foreign">
       <button type="submit">Add</button>
     </form>
-    <button>Start Test</button>
+    <router-link to="/test">
+      <button >Start Test</button>
+    </router-link>
 
     <ul class="list">
       <li v-for="(word, index) in words" v-bind:key="word.id">

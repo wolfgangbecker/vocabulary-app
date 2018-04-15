@@ -11,11 +11,11 @@
     <button>Start Test</button>
 
     <ul class="list">
-      <li v-for="word in words" v-bind:key="word.id">
+      <li v-for="(word, index) in words" v-bind:key="word.id">
         {{word.native}}
         <i class="material-icons">compare_arrows</i>
         {{word.foreign}}
-        <i class="material-icons">remove_circle</i>
+        <i class="material-icons" v-on:click="removeWord(index)">remove_circle</i>
       </li>
     </ul>
   </div>
@@ -46,6 +46,9 @@ export default {
       })
       this.newWord.native = ''
       this.newWord.foreign = ''
+    },
+    removeWord (index) {
+      this.words.splice(index, 1)
     }
   }
 }

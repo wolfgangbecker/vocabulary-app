@@ -36,7 +36,7 @@ export default {
       this.currentWord.success = this.currentGuess === this.currentWord.foreign
       this.index++
       if (this.words.length <= this.index) {
-        this.$router.push('list')
+        this.$router.push('results')
       } else {
         this.currentGuess = ''
       }

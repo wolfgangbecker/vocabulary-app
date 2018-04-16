@@ -3,14 +3,12 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+const words = JSON.parse(localStorage.getItem('words')) || []
+
 export default new Vuex.Store({
   state: {
-    words: [{
-      native: 'Hello',
-      foreign: 'Hola',
-      id: 0
-    }],
-    nextId: 1
+    words: words,
+    nextId: words.length
   },
   mutations: {
     addWord (state, newWord) {
@@ -21,6 +19,16 @@ export default new Vuex.Store({
     },
     removeWord (state, index) {
       state.words.splice(index, 1)
+    }
+  },
+  actions: {
+    addWord (context, newWord) {
+      context.commit('addWord', newWord)
+      localStorage.setItem('words', JSON.stringify(context.state.words))
+    },
+    removeWord (context, index) {
+      context.commit('removeWord', index)
+      localStorage.setItem('words', JSON.stringify(context.state.words))
     }
   },
   getters: {

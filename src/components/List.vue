@@ -41,12 +41,12 @@ export default {
   },
   methods: {
     addWord () {
-      this.$store.commit('addWord', this.newWord)
+      this.$store.dispatch('addWord', this.newWord)
       this.newWord.native = ''
       this.newWord.foreign = ''
     },
     removeWord (index) {
-      this.$store.commit('removeWord', index)
+      this.$store.dispatch('removeWord', index)
     }
   }
 }

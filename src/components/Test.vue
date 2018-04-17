@@ -10,32 +10,25 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'Test',
+  created: function () {
+    this.$store.dispatch('newTest')
+  },
   data () {
     return {
-      index: 0,
-      currentGuess: '',
-      words: this.$store.getters.randomWords().map((word) => {
-        return {
-          ...word,
-          guess: '',
-          success: false
-        }
-      })
+      currentGuess: ''
     }
   },
-  computed: {
-    currentWord: function () {
-      return this.words[this.index]
-    }
-  },
+  computed: mapGetters({
+    currentWord: 'currentTestWord'
+  }),
   methods: {
     onSubmit: function () {
-      this.currentWord.guess = this.currentGuess
-      this.currentWord.success = this.currentGuess === this.currentWord.foreign
-      this.index++
-      if (this.words.length <= this.index) {
+      this.$store.dispatch('submitGuess', this.currentGuess)
+      if (this.$store.getters.testIsFinished) {
         this.$router.push('results')
       } else {
         this.currentGuess = ''

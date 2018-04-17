@@ -1,12 +1,43 @@
 <template>
   <div>
     <h1>Results</h1>
+    <h2>Score: {{ score }}%</h2>
+    <table v-if="words.length > 0">
+      <tr>
+        <th>Words</th>
+        <th>Translations</th>
+        <th>Your answer</th>
+      </tr>
+      <tr v-bind:key="word.id" v-for="word in words">
+        <td>{{ word.native }}</td>
+        <td>{{ word.foreign }}</td>
+        <td>{{ word.guess }}</td>
+      </tr>
+    </table>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Results'
+  name: 'Results',
+  data () {
+    return {
+      words: this.$store.state.currentTestWords
+    }
+  },
+  computed: {
+    score () {
+      if (this.words.length === 0) {
+        return 0
+      }
+
+      const successCount = this.words
+        .map(word => word.success ? 1 : 0)
+        .reduce((acc, num) => acc + num, 0)
+
+      return successCount / this.words.length * 100
+    }
+  }
 }
 </script>
 

@@ -58,7 +58,7 @@ export default new Vuex.Store({
   getters: {
     // returns an array of random words
     // use the amount parameter to change the size of the array
-    randomWords: (state) => (amount = 5) => {
+    randomWords: (state) => (amount = 20) => {
       const random = []
       for (var i = amount - 1; i >= 0; i--) {
         random.push(state.words[Math.floor(Math.random() * state.words.length)])

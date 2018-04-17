@@ -3,16 +3,22 @@
     <h1>Results</h1>
     <h2>Score: {{ score }}%</h2>
     <table v-if="words.length > 0">
-      <tr>
-        <th>Words</th>
-        <th>Translations</th>
-        <th>Your answer</th>
-      </tr>
-      <tr v-bind:key="word.id" v-for="word in words">
-        <td>{{ word.native }}</td>
-        <td>{{ word.foreign }}</td>
-        <td>{{ word.guess }}</td>
-      </tr>
+      <thead>
+        <tr>
+          <th>Words</th>
+          <th>Translations</th>
+          <th>Your answer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-bind:key="word.id"
+          v-for="word in words"
+          v-bind:class="{ success: word.success }">
+          <td>{{ word.native }}</td>
+          <td>{{ word.foreign }}</td>
+          <td>{{ word.guess }}</td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </template>
@@ -35,13 +41,19 @@ export default {
         .map(word => word.success ? 1 : 0)
         .reduce((acc, num) => acc + num, 0)
 
-      return successCount / this.words.length * 100
+      return Math.round(successCount / this.words.length * 100)
     }
   }
 }
 </script>
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+tbody tr {
+  background: red;
+  color: white;
+}
 
+tbody tr.success {
+  background: green;
+}
 </style>

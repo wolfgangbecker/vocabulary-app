@@ -34,6 +34,9 @@ export default {
       }
     }
   },
+  created: function () {
+    this.$store.dispatch('fetchWords')
+  },
   computed: {
     words () {
       return this.$store.state.words

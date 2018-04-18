@@ -1,9 +1,18 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
+
+// const http = axios.create({
+//   baseURL: `${process.env.API_PROTOCOL}://${process.env.API_HOST}:${process.env.API_PORT}`
+// })
+const http = axios.create({
+  baseURL: `http://localhost:3000/api`
+})
 
 Vue.use(Vuex)
 
-const words = JSON.parse(localStorage.getItem('words')) || []
+// const words = JSON.parse(localStorage.getItem('words')) || []
+const words = []
 
 export default new Vuex.Store({
   state: {
@@ -18,6 +27,9 @@ export default new Vuex.Store({
         ...newWord,
         id: state.nextId++
       })
+    },
+    setWords (state, words) {
+      state.words = words
     },
     removeWord (state, index) {
       state.words.splice(index, 1)
@@ -53,6 +65,14 @@ export default new Vuex.Store({
     },
     submitGuess (context, guess) {
       context.commit('submitGuess', guess)
+    },
+    async fetchWords (context) {
+      try {
+        const response = await http.get('words')
+        context.commit('setWords', response.data)
+      } catch (e) {
+        console.log(e)
+      }
     }
   },
   getters: {

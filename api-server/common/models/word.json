@@ -1,0 +1,25 @@
+{
+  "name": "word",
+  "plural": "words",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "native": {
+      "type": "string",
+      "required": true,
+      "default": "none"
+    },
+    "foreign": {
+      "type": "string",
+      "required": true,
+      "default": "none"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

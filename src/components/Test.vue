@@ -3,7 +3,7 @@
     <h2>Test</h2>
     <progress-bar v-bind:percentage="progress"></progress-bar>
     <span>{{ currentWord.native }}</span>
-    <form v-on:submit="onSubmit">
+    <form v-on:submit.prevent="onSubmit">
       <input type="text" v-model="currentGuess">
       <button type="submit">Next</button>
     </form>

@@ -69,7 +69,7 @@ export default new Vuex.Store({
     },
     async newTest (context) {
       if (context.state.currentTestWords.length === 0) {
-        await context.dispatch('fetchWords');
+        await context.dispatch('fetchWords')
       }
 
       context.commit('newTest')

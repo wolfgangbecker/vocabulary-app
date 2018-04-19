@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>Word list</h2>
-    <form class="form" v-on:submit="addWord()">
+    <form class="form" v-on:submit.prevent="addWord()">
       <label for="native">Word</label>
       <input type="text" id="native" v-model.trim="newWord.native">
       <label for="foreign">Translation</label>
@@ -44,7 +44,7 @@ export default {
       return this.$store.state.words
     },
     readyForTest () {
-      return !this.words.length
+      return !(this.words.length > 0)
     }
   },
   methods: {

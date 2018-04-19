@@ -74,11 +74,10 @@ export default new Vuex.Store({
       context.commit('submitGuess', guess)
     },
     async fetchWords (context) {
-      try {
-        const response = await http.get('words')
+      const response = await http.get('words')
+
+      if (response.status === 200) {
         context.commit('setWords', response.data)
-      } catch (e) {
-        console.log(e)
       }
     }
   },

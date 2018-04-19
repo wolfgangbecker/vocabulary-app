@@ -36,15 +36,15 @@ export default {
   },
   created: function () {
     this.$store.dispatch('fetchWords').catch(() => {
-      alert("Something went wrong. We failed to retrieve your words.")
+      alert('Something went wrong. We failed to retrieve your words.')
     })
   },
   computed: {
     words () {
       return this.$store.state.words
     },
-    readyForTest() {
-      return this.words.length > 0 ? false : true
+    readyForTest () {
+      return !this.words.length
     }
   },
   methods: {
@@ -60,7 +60,7 @@ export default {
     removeWord (index) {
       this.$store.dispatch('removeWord', index)
         .catch(() => {
-          alert("Damn! We couldn't remove your word.")
+          alert('Damn! We couldn\'t remove your word.')
         })
     }
   }

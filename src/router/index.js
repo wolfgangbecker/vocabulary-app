@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import List from '@/components/List'
 import Test from '@/components/Test'
 import Results from '@/components/Results'
@@ -8,11 +7,11 @@ import Results from '@/components/Results'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
-      path: '/hello-world',
-      name: 'HelloWorld',
-      component: HelloWorld
+      path: '/',
+      redirect: '/list'
     },
     {
       path: '/list',

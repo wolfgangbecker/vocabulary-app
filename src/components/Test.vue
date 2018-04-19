@@ -7,6 +7,9 @@
       <input type="text" v-model="currentGuess">
       <button type="submit">Next</button>
     </form>
+    <router-link to="/">
+      <button>Leave Test</button>
+    </router-link>
   </div>
 </template>
 

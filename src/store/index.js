@@ -54,13 +54,18 @@ export default new Vuex.Store({
   actions: {
     async addWord (context, newWord) {
       const response = await http.post('words', newWord)
+
       if (response.status === 200) {
-        context.commit('addWord', newWord)
+        context.commit('addWord', response.data)
       }
     },
-    removeWord (context, index) {
-      context.commit('removeWord', index)
-      localStorage.setItem('words', JSON.stringify(context.state.words))
+    async removeWord (context, index) {
+      const word = context.state.words[index]
+      const response = await http.delete(`words/${word.id}`)
+
+      if (response.status === 200) {
+        context.commit('removeWord', index)
+      }
     },
     newTest (context) {
       context.commit('newTest')

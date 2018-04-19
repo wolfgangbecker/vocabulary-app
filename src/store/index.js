@@ -67,7 +67,11 @@ export default new Vuex.Store({
         context.commit('removeWord', index)
       }
     },
-    newTest (context) {
+    async newTest (context) {
+      if (context.state.currentTestWords.length === 0) {
+        await context.dispatch('fetchWords');
+      }
+
       context.commit('newTest')
     },
     submitGuess (context, guess) {
@@ -96,6 +100,9 @@ export default new Vuex.Store({
     },
     testIsFinished: (state) => {
       return state.currentTestWords.length <= state.testIndex
+    },
+    testProgress: (state) => {
+      return Math.round(state.testIndex / state.currentTestWords.length * 100)
     }
   }
 })

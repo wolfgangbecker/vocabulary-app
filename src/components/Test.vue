@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1>Test</h1>
+    <h2>Test</h2>
+    <progress-bar v-bind:percentage="progress"></progress-bar>
     <span>{{ currentWord.native }}</span>
     <form v-on:submit="onSubmit">
       <input type="text" v-model="currentGuess">
@@ -11,9 +12,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import ProgressBar from './ProgressBar'
 
 export default {
   name: 'Test',
+  components: { ProgressBar },
   created: function () {
     this.$store.dispatch('newTest')
   },
@@ -23,7 +26,8 @@ export default {
     }
   },
   computed: mapGetters({
-    currentWord: 'currentTestWord'
+    currentWord: 'currentTestWord',
+    progress: 'testProgress'
   }),
   methods: {
     onSubmit: function () {

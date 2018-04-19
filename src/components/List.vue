@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Word list</h1>
+    <h2>Word list</h2>
     <form class="form" v-on:submit="addWord()">
       <label for="native">Word</label>
       <input type="text" id="native" v-model="newWord.native">

@@ -44,9 +44,15 @@ export default {
   },
   methods: {
     addWord () {
-      this.$store.dispatch('addWord', this.newWord)
-      this.newWord.native = ''
-      this.newWord.foreign = ''
+      this.$store.dispatch('addWord', {
+        native: this.newWord.native,
+        foreign: this.newWord.foreign
+      }).then(() => {
+        this.newWord.native = ''
+        this.newWord.foreign = ''
+      }).catch(() => {
+        alert('Sorry! We failed to save your word.')
+      })
     },
     removeWord (index) {
       this.$store.dispatch('removeWord', index)

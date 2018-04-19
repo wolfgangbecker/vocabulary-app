@@ -20,6 +20,9 @@
         </tr>
       </tbody>
     </table>
+    <router-link to="/list">
+      <button>Back</button>
+    </router-link>
   </div>
 </template>
 

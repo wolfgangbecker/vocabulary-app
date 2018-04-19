@@ -3,9 +3,9 @@
     <h2>Word list</h2>
     <form class="form" v-on:submit="addWord()">
       <label for="native">Word</label>
-      <input type="text" id="native" v-model="newWord.native">
+      <input type="text" id="native" v-model.trim="newWord.native">
       <label for="foreign">Translation</label>
-      <input type="text" id="foreign" v-model="newWord.foreign">
+      <input type="text" id="foreign" v-model.trim="newWord.foreign">
       <button type="submit">Add</button>
     </form>
     <router-link to="/test">

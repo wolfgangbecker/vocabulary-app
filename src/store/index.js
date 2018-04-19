@@ -47,7 +47,7 @@ export default new Vuex.Store({
     submitGuess (state, guess) {
       const currentWord = state.currentTestWords[state.testIndex]
       currentWord.guess = guess
-      currentWord.success = guess === currentWord.foreign
+      currentWord.success = guess.toLowerCase() === currentWord.foreign.toLowerCase()
       state.testIndex++
     }
   },

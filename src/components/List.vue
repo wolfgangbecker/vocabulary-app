@@ -9,7 +9,7 @@
       <button type="submit">Add</button>
     </form>
     <router-link to="/test">
-      <button >Start Test</button>
+      <button v-bind:disabled="readyForTest">Start Test</button>
     </router-link>
 
     <ul class="list">
@@ -42,6 +42,9 @@ export default {
   computed: {
     words () {
       return this.$store.state.words
+    },
+    readyForTest() {
+      return this.words.length > 0 ? false : true
     }
   },
   methods: {

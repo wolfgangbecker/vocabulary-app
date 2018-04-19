@@ -1,27 +1,19 @@
 # vocabulary-app
 
-> A simple vocabulary learning app
+> This is a simple web app to learn vocabulary in a foreign language. <br>It is built with [Vue.js](https://vuejs.org/) + [Vuex](https://vuex.vuejs.org/en/intro.html) (front-end) and [LoopBack](https://loopback.io/) (back-end).
 
-## Build Setup
+## Installation
 
-``` bash
-# install dependencies
-npm install
+1. Install [Node](https://nodejs.org/en/).
+2. Run `npm install` in the root project directory.
+3. `cd` into api-server/ and run `npm install` again.
 
-# serve with hot reload at localhost:8080
-npm run dev
+> You can also use `yarn` for both installations.
 
-# build for production with minification
-npm run build
+## Run it
 
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+1. In the root directory run `npm run dev` (or just `yarn dev`).
+> This will start the Webpack dev server on localhost:8080 (unless you have something else running there).
+2. Head into the api-server/ directory and run `node .`.
+> This starts an [ExpressJS](https://expressjs.com/)-based API server on localhost:3000.
+3. Now just enter the URL for the frontend server in the browser.

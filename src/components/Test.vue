@@ -1,15 +1,22 @@
 <template>
-  <div>
+  <div class="container">
     <h2>Test</h2>
-    <progress-bar v-bind:percentage="progress"></progress-bar>
-    <span>{{ currentWord.native }}</span>
+    <p>
+      Current word:
+      <span>{{ (currentWord || {}).native }}</span>
+    </p>
     <form v-on:submit.prevent="onSubmit">
-      <input type="text" v-model="currentGuess">
+      <input type="text"
+        placeholder="Enter the translation"
+        v-model="currentGuess">
       <button type="submit">Next</button>
     </form>
-    <router-link to="/">
-      <button>Leave Test</button>
-    </router-link>
+    <div class="bottom">
+      <progress-bar v-bind:percentage="progress"></progress-bar>
+      <router-link to="/">
+        <button>Leave Test</button>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -47,5 +54,22 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .progress-bar {
+    flex: 1;
+    display: inline;
+    margin-right: 5px;
+  }
+  .bottom {
+    width: 300px;
+    height: 20px;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 </style>

@@ -20,11 +20,12 @@ export default {
 <style scoped>
   .progress-bar {
     border: 1px solid black;
-    width: 100px;
-    height: 20px;
+    width: 100%;
+    height: 100%;
   }
   .progress {
-    background: blue;
-    height: 20px;
+    background: #398F8F;
+    transition: width 1s;
+    height: 100%;
   }
 </style>

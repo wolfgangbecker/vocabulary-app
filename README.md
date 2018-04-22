@@ -17,3 +17,8 @@
 2. Head into the api-server/ directory and run `node .`.
 > This starts an [ExpressJS](https://expressjs.com/)-based API server on localhost:3000.
 3. Now just enter the URL for the frontend server in the browser.
+
+## Test
+
+Execute `npm run test` (or `yarn test`) to run all tests and create a coverage report.<br>
+The report can be found at test/unit/coverage/lcov-report/index.html

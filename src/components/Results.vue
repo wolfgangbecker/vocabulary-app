@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Results</h1>
-    <h2>Score: {{ score }}%</h2>
+    <h2>Score: <span id="score">{{ score }}%</span></h2>
     <table v-if="words.length > 0">
       <thead>
         <tr>
@@ -27,6 +27,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'Results',
   data () {
@@ -34,29 +36,17 @@ export default {
       words: this.$store.state.currentTestWords
     }
   },
-  computed: {
-    score () {
-      if (this.words.length === 0) {
-        return 0
-      }
-
-      const successCount = this.words
-        .map(word => word.success ? 1 : 0)
-        .reduce((acc, num) => acc + num, 0)
-
-      return Math.round(successCount / this.words.length * 100)
-    }
-  }
+  computed: mapGetters(['score'])
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-tbody tr {
-  background: red;
-  color: white;
-}
+  tbody tr {
+    background: red;
+    color: white;
+  }
 
-tbody tr.success {
-  background: green;
-}
+  tbody tr.success {
+    background: green;
+  }
 </style>

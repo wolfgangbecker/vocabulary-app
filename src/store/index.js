@@ -103,6 +103,17 @@ export default new Vuex.Store({
     },
     testProgress: (state) => {
       return Math.round(state.testIndex / state.currentTestWords.length * 100)
+    },
+    score: (state) => {
+      if (state.currentTestWords.length === 0) {
+        return 0
+      }
+
+      const successCount = state.currentTestWords
+        .map(word => word.success ? 1 : 0)
+        .reduce((acc, num) => acc + num, 0)
+
+      return Math.round(successCount / state.currentTestWords.length * 100)
     }
   }
 })

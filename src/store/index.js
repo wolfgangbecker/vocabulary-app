@@ -2,31 +2,21 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 
-// const http = axios.create({
-//   baseURL: `${process.env.API_PROTOCOL}://${process.env.API_HOST}:${process.env.API_PORT}`
-// })
 const http = axios.create({
   baseURL: `http://localhost:3000/api`
 })
 
 Vue.use(Vuex)
 
-// const words = JSON.parse(localStorage.getItem('words')) || []
-const words = []
-
 export default new Vuex.Store({
   state: {
-    words: words,
+    words: [],
     currentTestWords: [],
-    nextId: words.length,
     testIndex: 0
   },
   mutations: {
     addWord (state, newWord) {
-      state.words.push({
-        ...newWord,
-        id: state.nextId++
-      })
+      state.words.push(newWord)
     },
     setWords (state, words) {
       state.words = words
@@ -88,7 +78,7 @@ export default new Vuex.Store({
   getters: {
     // returns an array of random words
     // use the amount parameter to change the size of the array
-    randomWords: (state) => (amount = 3) => {
+    randomWords: (state) => (amount = 20) => {
       const random = []
       for (var i = amount - 1; i >= 0; i--) {
         random.push(state.words[Math.floor(Math.random() * state.words.length)])

@@ -3,7 +3,7 @@
     <h2>Test</h2>
     <p>
       Current word:
-      <span>{{ (currentWord || {}).native }}</span>
+      <span id="currentWord">{{ (currentWord || {}).native }}</span>
     </p>
     <form v-on:submit.prevent="onSubmit">
       <input type="text"

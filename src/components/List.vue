@@ -18,7 +18,7 @@
       <button type="submit">Add</button>
     </form>
     <router-link to="/test">
-      <button v-bind:disabled="readyForTest">Start Test</button>
+      <button id="startTest" v-bind:disabled="readyForTest">Start Test</button>
     </router-link>
 
     <table>
@@ -29,11 +29,13 @@
           <th>Actions</th>
         </tr>
       </thead>
-      <tr v-for="(word, index) in words" v-bind:key="word.id">
-        <td>{{word.native}}</td>
-        <td>{{word.foreign}}</td>
-        <td><i class="material-icons" v-on:click="removeWord(index)">remove_circle</i></td>
-      </tr>
+      <tbody>
+        <tr v-for="(word, index) in words" v-bind:key="word.id">
+          <td>{{word.native}}</td>
+          <td>{{word.foreign}}</td>
+          <td><i class="material-icons" v-on:click="removeWord(index)">remove_circle</i></td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </template>

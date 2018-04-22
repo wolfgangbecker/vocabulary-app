@@ -13,12 +13,18 @@
       <br>
       <div>
         <label for="foreign">Translation</label>
-        <input type="text" id="foreign" placeholder="Enter a foreign translation" v-model.trim="newWord.foreign">
+        <input type="text"
+          id="foreign"
+          placeholder="Enter a foreign translation"
+          v-model.trim="newWord.foreign">
       </div>
       <button type="submit">Add</button>
     </form>
     <router-link to="/test">
-      <button id="startTest" v-bind:disabled="readyForTest">Start Test</button>
+      <button id="startTest"
+        v-bind:disabled="readyForTest">
+        Start Test
+      </button>
     </router-link>
 
     <table>
@@ -30,10 +36,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(word, index) in words" v-bind:key="word.id">
+        <tr v-for="(word, index) in words"
+          v-bind:key="word.id">
           <td>{{word.native}}</td>
           <td>{{word.foreign}}</td>
-          <td><i class="material-icons" v-on:click="removeWord(index)">remove_circle</i></td>
+          <td>
+            <i class="material-icons"
+              v-on:click="removeWord(index)">
+              remove_circle
+            </i>
+          </td>
         </tr>
       </tbody>
     </table>

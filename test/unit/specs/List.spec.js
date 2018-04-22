@@ -125,7 +125,7 @@ describe('List.vue', () => {
       expect(firstRowText).toMatch(new RegExp(testWords[1].native))
       expect(firstRowText).toMatch(new RegExp(testWords[1].foreign))
       expect(tableRows.length).toBe(1)
-    });
+    })
 
     sharedExamples()
   })

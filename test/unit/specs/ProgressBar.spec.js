@@ -1,15 +1,11 @@
-import Vue from 'vue'
-import { shallow, createLocalVue, mount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import ProgressBar from '@/components/ProgressBar'
-
-const localVue = createLocalVue()
 
 describe('ProgressBar.vue', () => {
   let vm
-  let wrapper
 
   beforeEach(() => {
-    wrapper = mount(ProgressBar, {
+    const wrapper = mount(ProgressBar, {
       propsData: {
         percentage: 30
       }

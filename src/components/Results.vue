@@ -33,7 +33,7 @@ export default {
   name: 'Results',
   data () {
     return {
-      words: this.$store.state.currentTestWords
+      words: this.$store.state.test.currentTestWords
     }
   },
   computed: mapGetters(['score'])

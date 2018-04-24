@@ -14,7 +14,7 @@
     ]
   },
   "word": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true,
     "options": {
       "remoting": {

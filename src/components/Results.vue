@@ -11,8 +11,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-bind:key="word.id"
-          v-for="word in words"
+        <tr v-bind:key="index"
+          v-for="(word, index) in words"
           v-bind:class="{ success: word.success }">
           <td>{{ word.native }}</td>
           <td>{{ word.foreign }}</td>

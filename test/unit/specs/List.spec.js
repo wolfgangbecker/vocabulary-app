@@ -19,7 +19,9 @@ describe('List.vue', () => {
 
     store = new Vuex.Store({
       state: {
-        words: []
+        list: {
+          words: []
+        }
       },
       actions
     })
@@ -36,7 +38,7 @@ describe('List.vue', () => {
   const sharedExamples = () => {
     it('should add a new word to the table on submit', () => {
       actions.addWord.mockImplementation((action, word) => {
-        store.state.words.push({
+        store.state.list.words.push({
           native: word.native,
           foreign: word.foreign
         })
@@ -93,7 +95,7 @@ describe('List.vue', () => {
     }]
 
     beforeEach(() => {
-      store.state.words.push(...testWords)
+      store.state.list.words.push(...testWords)
     })
 
     it('should have the test button enabled', () => {
@@ -113,7 +115,7 @@ describe('List.vue', () => {
 
     it('should remove a word', () => {
       actions.removeWord.mockImplementation((action, index) => {
-        store.state.words.splice(index, 1)
+        store.state.list.words.splice(index, 1)
         return Promise.resolve()
       })
       const firstRowRemoveAction = wrapper.find('tbody tr td:last-of-type i')

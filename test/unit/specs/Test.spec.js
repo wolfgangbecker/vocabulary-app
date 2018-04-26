@@ -30,9 +30,7 @@ describe('Test.vue', () => {
     }
 
     store = new Vuex.Store({
-      state: {
-        words: []
-      },
+      state: {},
       actions,
       getters
     })

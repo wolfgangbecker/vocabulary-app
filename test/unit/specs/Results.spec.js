@@ -29,7 +29,9 @@ describe('Results.vue', () => {
 
     store = new Vuex.Store({
       state: {
-        currentTestWords: currentTestWords
+        test: {
+          currentTestWords: currentTestWords
+        }
       },
       getters
     })

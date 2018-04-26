@@ -73,7 +73,7 @@ describe('List.vue', () => {
 
   describe('with no words submitted', () => {
     it('should have the test button disabled', () => {
-      expect(wrapper.find('#startTest').attributes()['disabled']).toBe('disabled')
+      expect(wrapper.find('#startTest').attributes()['class']).toContain('disabled')
     })
 
     it('should have an empty table', () => {
@@ -99,7 +99,7 @@ describe('List.vue', () => {
     })
 
     it('should have the test button enabled', () => {
-      expect(wrapper.find('#startTest').attributes()['disabled']).toBeUndefined()
+      expect(wrapper.find('#startTest').attributes()['class']).not.toContain('disabled')
     })
 
     it('should have words in the table', () => {

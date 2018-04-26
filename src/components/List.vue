@@ -35,12 +35,10 @@
             class="ui icon primary button">
             <i class="plus icon"></i>
           </button>
-          <router-link to="/test">
-            <button id="startTest"
-              class="ui positive button"
-              v-bind:disabled="readyForTest">
+          <router-link to="/test" id="startTest"
+            class="ui positive button"
+            v-bind:class="{ disabled: !readyForTest }">
               Start Test
-            </button>
           </router-link>
         </div>
       </div>
@@ -92,7 +90,7 @@ export default {
       return this.$store.state.list.words
     },
     readyForTest () {
-      return !(this.words.length > 0)
+      return this.words.length > 0
     }
   },
   methods: {

@@ -42,7 +42,7 @@
           <td>{{word.native}}</td>
           <td>{{word.foreign}}</td>
           <td>
-            <i class="material-icons"
+            <i class="material-icons action"
               v-on:click="removeWord(index)">
               remove_circle
             </i>
@@ -99,7 +99,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
   form {
     width: 100px;
     margin: 10px auto;
@@ -113,5 +113,14 @@ export default {
     margin: auto;
     min-width: 50%;
     max-width: 90%;
+  }
+  .action {
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 0 10px black;
+      border-radius: 50%;
+      transition: box-shadow 0.3s;
+    }
   }
 </style>

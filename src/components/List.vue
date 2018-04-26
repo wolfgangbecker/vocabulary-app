@@ -6,6 +6,7 @@
         <label for="native">Word</label>
         <input type="text"
           id="native"
+          ref="native"
           placeholder="Enter a native word here"
           autofocus="autofocus"
           v-model.trim="newWord.native">
@@ -82,6 +83,7 @@ export default {
         .then(() => {
           this.newWord.native = ''
           this.newWord.foreign = ''
+          this.$refs.native.focus()
         }).catch(() => {
           alert('Sorry! We failed to save your word.')
         })

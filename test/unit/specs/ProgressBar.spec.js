@@ -14,7 +14,7 @@ describe('ProgressBar.vue', () => {
   })
 
   it('should render the progress with the correct width', () => {
-    expect(vm.$el.querySelector('.progress').style.width)
+    expect(vm.$el.querySelector('.bar').style.width)
       .toEqual('30%')
   })
 })

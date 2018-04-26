@@ -1,6 +1,7 @@
 <template>
-  <div class="progress-bar">
-    <div class="progress" v-bind:style="{ width: percentage + '%' }"></div>
+  <div class="ui large progress green" data-total="100">
+    <div class="bar" v-bind:style="{ width: textPercentage }"></div>
+    <div class="label">{{ textPercentage }}</div>
   </div>
 </template>
 
@@ -12,20 +13,15 @@ export default {
       type: Number,
       default: 0
     }
+  },
+  computed: {
+    textPercentage () {
+      return this.percentage + '%'
+    }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .progress-bar {
-    border: 1px solid black;
-    width: 100%;
-    height: 100%;
-  }
-  .progress {
-    background: #398F8F;
-    transition: width 1s;
-    height: 100%;
-  }
 </style>

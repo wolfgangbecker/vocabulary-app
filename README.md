@@ -1,6 +1,6 @@
 # vocabulary-app
 
-> This is a simple web app to learn vocabulary in a foreign language. <br>It is built with [Vue.js](https://vuejs.org/) + [Vuex](https://vuex.vuejs.org/en/intro.html) (front-end) and [LoopBack](https://loopback.io/) (back-end).
+> This is a simple web app to learn vocabulary in a foreign language. <br>It is built with [Vue.js](https://vuejs.org/) + [Semantic UI](https://semantic-ui.com/) (front-end) and [LoopBack](https://loopback.io/) (back-end).
 
 ## Installation
 

@@ -1,9 +1,1 @@
-body {
-  margin: 0;
-  background: #C0EDED;
-  font-family: 'Roboto', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+@import 'semantic-ui-css/semantic.min.css';

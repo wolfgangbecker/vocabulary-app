@@ -1,36 +1,52 @@
 <template>
   <div>
-    <h2>Word list</h2>
-    <form v-on:submit.prevent="addWord()">
-      <div>
-        <label for="native">Word</label>
-        <input type="text"
-          id="native"
-          ref="native"
-          placeholder="Enter a native word here"
-          autofocus="autofocus"
-          required
-          v-model.trim="newWord.native">
+    <form class="ui form"
+      v-on:submit.prevent="addWord()">
+      <h2 class="ui dividing header">Word list</h2>
+      <div class="three fields">
+        <div class="field">
+          <div class="ui small labeled input">
+            <div class="ui label">
+              Word
+            </div>
+            <input type="text"
+              id="native"
+              ref="native"
+              placeholder="Enter a native word here"
+              autofocus="autofocus"
+              required
+              v-model.trim="newWord.native">
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui small labeled input">
+            <div class="ui label">
+              Translation
+            </div>
+            <input type="text"
+              id="foreign"
+              placeholder="Enter a foreign translation"
+              required
+              v-model.trim="newWord.foreign">
+          </div>
+        </div>
+        <div class="field">
+          <button type="submit"
+            class="ui icon primary button">
+            <i class="plus icon"></i>
+          </button>
+          <router-link to="/test">
+            <button id="startTest"
+              class="ui positive button"
+              v-bind:disabled="readyForTest">
+              Start Test
+            </button>
+          </router-link>
+        </div>
       </div>
-      <br>
-      <div>
-        <label for="foreign">Translation</label>
-        <input type="text"
-          id="foreign"
-          placeholder="Enter a foreign translation"
-          required
-          v-model.trim="newWord.foreign">
-      </div>
-      <button type="submit">Add</button>
     </form>
-    <router-link to="/test">
-      <button id="startTest"
-        v-bind:disabled="readyForTest">
-        Start Test
-      </button>
-    </router-link>
 
-    <table>
+    <table class="ui celled unstackable table">
       <thead>
         <tr>
           <th>Native</th>
@@ -44,10 +60,10 @@
           <td>{{word.native}}</td>
           <td>{{word.foreign}}</td>
           <td>
-            <i class="material-icons action"
+            <button class="ui circular icon red button"
               v-on:click="removeWord(index)">
-              remove_circle
-            </i>
+              <i class="minus icon"></i>
+            </button>
           </td>
         </tr>
       </tbody>
@@ -102,27 +118,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-  form {
-    width: 100px;
-    margin: 10px auto;
-    display: flex;
-    align-items: flex-end;
-    flex-direction: column;
-    min-width: 350px;
-    max-width: 90%;
-  }
-  table {
-    margin: auto;
-    min-width: 50%;
-    max-width: 90%;
-  }
-  .action {
-    cursor: pointer;
-
-    &:hover {
-      box-shadow: 0 0 10px black;
-      border-radius: 50%;
-      transition: box-shadow 0.3s;
-    }
-  }
 </style>

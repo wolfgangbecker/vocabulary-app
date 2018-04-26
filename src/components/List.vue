@@ -9,6 +9,7 @@
           ref="native"
           placeholder="Enter a native word here"
           autofocus="autofocus"
+          required
           v-model.trim="newWord.native">
       </div>
       <br>
@@ -17,6 +18,7 @@
         <input type="text"
           id="foreign"
           placeholder="Enter a foreign translation"
+          required
           v-model.trim="newWord.foreign">
       </div>
       <button type="submit">Add</button>

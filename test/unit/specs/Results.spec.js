@@ -64,12 +64,14 @@ describe('Results.vue', () => {
   it('should set a succees class on table rows with successful guesses', () => {
     const successTableRow = wrapper.find('tbody tr:last-of-type')
 
-    expect(successTableRow.attributes().class).toBe('success')
+    expect(successTableRow.attributes().class).toContain('positive')
+    expect(successTableRow.attributes().class).not.toContain('negative')
   })
 
   it('should not set a succees class on table rows with failed guesses', () => {
     const successTableRow = wrapper.find('tbody tr')
 
-    expect(successTableRow.attributes().class).toBe('')
+    expect(successTableRow.attributes().class).toContain('negative')
+    expect(successTableRow.attributes().class).not.toContain('positive')
   })
 })

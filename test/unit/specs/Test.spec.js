@@ -1,4 +1,4 @@
-import { shallow, createLocalVue, RouterLinkStub } from '@vue/test-utils'
+import { shallowMount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 import Test from '@/components/Test'
@@ -38,7 +38,7 @@ describe('Test.vue', () => {
     router = new VueRouter()
     router.push = jest.fn()
 
-    wrapper = shallow(Test, {
+    wrapper = shallowMount(Test, {
       store,
       router,
       localVue,

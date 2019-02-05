@@ -1,4 +1,4 @@
-import { shallow, createLocalVue, RouterLinkStub } from '@vue/test-utils'
+import { shallowMount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
 import Vuex from 'vuex'
 import List from '@/components/List'
 
@@ -26,7 +26,7 @@ describe('List.vue', () => {
       actions
     })
 
-    wrapper = shallow(List, {
+    wrapper = shallowMount(List, {
       store,
       localVue,
       stubs: {

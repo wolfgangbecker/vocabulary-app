@@ -1,8 +1,15 @@
 version: 2
 jobs:
-  build:
+  test:
     docker:
-      - image: circleci/ruby:2.4.1
+      - image: circleci/node:8.11.3
     steps:
       - checkout
-      - run: echo "A first hello"
+      - run: npm i
+      - run: npm test
+      - run: echo "Tested successfully"
+workflows:
+  version: 2
+  run_test:
+    jobs:
+      - test
